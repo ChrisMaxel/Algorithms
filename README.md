@@ -1,4 +1,4 @@
 Algorithms
 ==========
 
-Playing around with algorithms in Groovy
+Playing around with algorithms in Java

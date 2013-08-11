@@ -1,6 +1,6 @@
 package stack
 
-import spock.lang.Specification;
+import spock.lang.Specification
 
 class StackTests extends Specification{
 
