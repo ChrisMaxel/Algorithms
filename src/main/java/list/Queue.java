@@ -48,7 +48,25 @@ public class Queue<T> implements Iterable<T> {
 		} else {
 			return null;
 		}
-		
+	}
+
+	/**
+	 * Finds a key in a queue
+	 * @param key - key to be found in the queue
+	 * @return true if found, false otherwise
+	 */
+	public boolean find(T key) {
+		if (key == null) {
+			return false;
+		}
+		Node node = first;
+		while (node != null) {
+			if (node.item.equals(key)) {
+				return true;
+			}
+			node = node.next;
+		}
+		return false;
 	}
 
 	/**

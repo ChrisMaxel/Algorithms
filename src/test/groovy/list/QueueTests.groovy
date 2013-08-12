@@ -43,4 +43,30 @@ class QueueTests extends Specification{
 		then:
 		queue.isEmpty()
 	}
+
+	def 'find key'() {
+		when:
+		queue.enqueue("a")
+		queue.enqueue("b")
+		queue.enqueue("c")
+
+		then:
+		queue.find("c")
+	}
+
+	def 'find non existing key'() {
+		when:
+		queue.enqueue("a")
+
+		then:
+		!queue.find("b")
+	}
+
+	def 'find null key'() {
+		when:
+		queue.enqueue("a")
+
+		then:
+		!queue.find(null)
+	}
 }
