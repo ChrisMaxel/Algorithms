@@ -19,20 +19,29 @@ public class Stack<T> implements Iterable<T> {
 	/**
 	 * Inserts a new item
 	 * @param item - item to be inserted
+	 * @return item pushed onto stack
+	 * @throws IllegalArgumentException on null parameter 
 	 */
-	public void push(T item) {
+	public T push(T item) {
+		if (item == null) {
+			throw new IllegalArgumentException("Argument cannot be null");
+		}
 		Node newNode = node;
 		node = new Node();
 		node.item = item;
 		node.next = newNode;
 		size++;
+		return node.item;
 	}
 
 	/**
 	 * Pops an item from the stack
-	 * @return item removed from stack
+	 * @return item removed from stack, null if stack is empty
 	 */
 	public T pop() {
+		if (node == null) {
+			return null;
+		}
 		T item = node.item;
 		node = node.next;
 		size--;
