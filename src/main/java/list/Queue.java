@@ -14,8 +14,13 @@ public class Queue<T> implements Iterable<T> {
 	/**
 	 * Adds an item to the queue
 	 * @param item - item added to the queue
+	 * @return item added to the queue
+	 * @throws IllegalArgumentException on null parameter
 	 */
-	public void enqueue(T item) {
+	public T enqueue(T item) {
+		if (item == null) {
+			throw new IllegalArgumentException("Argument cannot be null");
+		}
 		Node newLast = last;
 		last = new Node();
 		last.item = item;
@@ -27,6 +32,7 @@ public class Queue<T> implements Iterable<T> {
 			newLast.next = last;
 		}
 		size++;
+		return last.item;
 	}
 
 	/**
