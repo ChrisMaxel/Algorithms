@@ -44,4 +44,18 @@ class StackTests extends Specification {
 		then:
 		stack.isEmpty()
 	}
+	
+	def 'peek'() {
+		when:
+		stack.push('string')
+		
+		then:
+		stack.peek() == 'string'
+		stack.size() == 1
+	}
+	
+	def 'null peek'() {
+		expect:
+		stack.peek() == null
+	}
 }

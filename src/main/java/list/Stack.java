@@ -79,6 +79,17 @@ public class Stack<T> implements Iterable<T> {
 	public int size() {
 		return size;
 	}
+	
+	/**
+	 * Retrieve the value on the top of the stack without removing it 
+	 * @return top of the stack
+	 */
+	public T peek() {
+		if (node == null) {
+			return null;
+		}
+		return node.item;
+	}
 
 	private class Node {
 		private T item;
