@@ -45,7 +45,8 @@ public class Queue<T> implements Iterable<T> {
 			first = first.next;
 			size--;
 			return item;
-		} else {
+		}
+		else {
 			return null;
 		}
 	}
@@ -67,6 +68,54 @@ public class Queue<T> implements Iterable<T> {
 			node = node.next;
 		}
 		return false;
+	}
+
+	/**
+	 * Removes the link at the specified index 
+	 * @param index - index of link to be removed
+	 * @return removed link
+	 * @throws IllegalArgumentException if index is invalid
+	 */
+	public T remove(int index) {
+		if (isEmpty()) {
+			return null;
+		}
+		if (size <= index || index < 0) {
+			throw new IllegalArgumentException("Position not in list");
+		}
+
+		Node current = first;
+		Node previous = first;
+		for (int i = 0; i < index; i++) {
+			previous = current;
+			current = current.next;
+		}
+
+		return deleteNode(current, previous);
+	}
+
+	/**
+	 * Removes the specified link if it exists 
+	 * @param item - link to be removed
+	 * @return removed link
+	 */
+	public T remove(T item) {
+		if (isEmpty() || item == null) {
+			return null;
+		}
+
+		Node current = first;
+		Node previous = first;
+
+		while (current.item != item) {
+			if (current.next == null) {
+				return null;
+			}
+			previous = current;
+			current = current.next;
+		}
+
+		return deleteNode(current, previous);
 	}
 
 	/**
@@ -102,6 +151,17 @@ public class Queue<T> implements Iterable<T> {
 		return new QueueInterator();
 	}
 
+	private T deleteNode(Node current, Node previous) {
+		if (current == first) {
+			first = first.next;
+		}
+		else {
+			previous.next = current.next;
+		}
+		size--;
+		return current.item;
+	}
+
 	private class Node {
 		private T item;
 		private Node next;
@@ -124,17 +184,6 @@ public class Queue<T> implements Iterable<T> {
 
 		@Override
 		public void remove() {
-		}
-	}
-
-	public static void main(String[] args) {
-		Queue<String> q = new Queue<>();
-		q.enqueue("vasile");
-		q.enqueue("gigi");
-		q.enqueue("ion");
-		for (String s : q) {
-			System.out.println(s);
-			System.out.println(q.dequeue());
 		}
 	}
 }

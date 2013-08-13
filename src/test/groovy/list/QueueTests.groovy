@@ -46,27 +46,82 @@ class QueueTests extends Specification{
 
 	def 'find key'() {
 		when:
-		queue.enqueue("a")
-		queue.enqueue("b")
-		queue.enqueue("c")
+		['a','b','c'].each { queue.enqueue(it) }
 
 		then:
-		queue.find("c")
+		queue.find('c')
 	}
 
 	def 'find non existing key'() {
 		when:
-		queue.enqueue("a")
+		queue.enqueue('a')
 
 		then:
-		!queue.find("b")
+		!queue.find('b')
 	}
 
 	def 'find null key'() {
 		when:
-		queue.enqueue("a")
+		queue.enqueue('a')
 
 		then:
 		!queue.find(null)
+	}
+
+	def 'remove index'() {
+		setup:
+		[1, 2, 3, 4, 5].each { queue.enqueue(it) }
+
+		expect:
+		queue.remove(index) == item
+
+		where:
+		index | item 
+		  0   |  1    
+		  4   |  5
+		  2   |  3
+	}
+	
+	def 'remove invalid index'() {
+		setup:
+		[1, 2, 3, 4, 5].each { queue.enqueue(it) }
+
+		when:
+		queue.remove(-2)
+		
+		then:
+		thrown IllegalArgumentException
+	}
+	
+	def 'remove item'() {
+		setup:
+		['a', 'b', 'c', 'd', 'e'].each { queue.enqueue(it) }
+		
+		expect:
+		queue.remove(removeItem) == item
+
+		where:
+		removeItem   | item
+		 'a'  		 | 'a'
+		 'e'  		 | 'e'
+		 'c'  		 | 'c'
+		 'f'  		 | null
+		 null 		 | null
+	}
+	
+	def 'resizing after removal'() {
+		setup:
+		[1, 2, 3, 4, 5].each { queue.enqueue(it) }
+		
+		when:
+		queue.remove(3)
+		
+		then:
+		queue.size() == 4
+	}
+	
+	def 'remove from empty list'() {
+		expect:
+		queue.remove('string') == null
 	}
 }
