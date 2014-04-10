@@ -5,4 +5,7 @@
 .classpath
 .project
 .gradle
+.idea
+Algorithms.iml
+classes
 
