@@ -32,4 +32,22 @@ public class Array {
 		}
 		return result;
 	}
+
+	/**
+	 * The dot products of two vectors
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public static double dotProduct(double[] x, double[] y) {
+		if (x.length != y.length) {
+			throw new IllegalArgumentException("Arrays have different lengths");
+		}
+
+		double sum = 0;
+		for (int i = 0; i < x.length; i++) {
+			sum += x[i] * y[i];
+		}
+		return sum;
+	}
 }

@@ -45,4 +45,20 @@ class ArrayTests extends Specification {
 		def e = thrown(IllegalArgumentException)
 		e.message == 'Cannot have an array with negative length'
 	}
+
+	def 'test dot product with different size vectors '() {
+		when:
+		dotProduct([1, 2, 3] as double[], [1, 2] as double[])
+
+		then:
+		def e = thrown(IllegalArgumentException)
+		e.message == 'Arrays have different lengths'
+	}
+
+	def 'test dot product'() {
+		def sum = dotProduct([1.2, 2.2, 3.3] as double[], [1.1, 2.4, 3.5] as double[])
+
+		expect:
+		sum == 18.15
+	}
 }
