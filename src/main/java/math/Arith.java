@@ -16,4 +16,18 @@ public class Arith {
 		System.out.printf("p: %d q: %d r: %d\n", p, q, r);
 		return gcd(q, r);
 	}
+
+	public static boolean isPrime(int n) {
+		if (n < 0) {
+			throw new IllegalArgumentException("Negative numbers cannot be prime");
+		}
+
+		int sqrN = (int) Math.sqrt(n);
+		for (int i = 2; i <= sqrN; i++) {
+			if (n % i == 0) {
+				return false;
+			}
+		}
+		return true;
+	}
 }

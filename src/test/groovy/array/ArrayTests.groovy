@@ -2,6 +2,8 @@ package array
 
 import spock.lang.Specification
 
+import static array.Array.*
+
 /**
  * @author Andrei Petraru 
  * 10 Apr 2014
@@ -9,7 +11,7 @@ import spock.lang.Specification
 class ArrayTests extends Specification {
 	def 'test histogram with [0..m-1] values in array'() {
 		def array = [1, 2, 3, 3, 3, 3, 4] as int[]
-		def result = Array.histogram(array, 6)
+		def result = histogram(array, 6)
 		def arraySum = 0
 		result.each {
 			print it
@@ -23,7 +25,7 @@ class ArrayTests extends Specification {
 
 	def 'test histogram with larger values in array'() {
 		def array = [1, 12, 3, 2, 7, 3, 4] as int[]
-		def result = Array.histogram(array, 0)
+		def result = histogram(array, 0)
 		def arraySum = 0
 		result.each {
 			print it
@@ -37,7 +39,7 @@ class ArrayTests extends Specification {
 
 	def 'test histogram with negative M'() {
 		when:
-		Array.histogram([1, 2, 3] as int[], -1)
+		histogram([1, 2, 3] as int[], -1)
 
 		then:
 		def e = thrown(IllegalArgumentException)
