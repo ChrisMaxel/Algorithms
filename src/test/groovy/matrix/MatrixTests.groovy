@@ -5,7 +5,8 @@ import spock.lang.Specification
 import static matrix.Matrix.*
 
 /**
- * Created by Petraru on 10-Apr-14.
+ * @author Andrei Petraru
+ * 10 Apr 2014
  */
 class MatrixTests extends Specification {
 	def 'print transposition'() {

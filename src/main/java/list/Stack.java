@@ -3,15 +3,11 @@ package list;
 import java.util.Iterator;
 
 /**
+ * A generic stack implementation
  * @author Andrei Petraru
- * Aug 11, 2013
+ * 11 Aug 2013
  */
 
-/**
- * A generic stack implementation 
- * @author FirstName LastName
- * @param <T>
- */
 public class Stack<T> implements Iterable<T> {
 	private Node node;
 	private int size;

@@ -1,6 +1,5 @@
 package matrix;
 
-import array.Array;
 import math.Arith;
 
 /**

@@ -5,7 +5,7 @@ import java.util.Iterator;
 
 /**
  * @author Andrei Petraru
- * Aug 11, 2013
+ * 11 Aug 2013
  */
 
 /**

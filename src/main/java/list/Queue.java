@@ -3,8 +3,9 @@ package list;
 import java.util.Iterator;
 
 /**
+ * A generic queue implementation
  * @author Andrei Petraru
- * Aug 11, 2013
+ * 11 Aug 2013
  */
 public class Queue<T> implements Iterable<T> {
 	private Node first;
