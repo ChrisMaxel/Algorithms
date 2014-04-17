@@ -9,7 +9,7 @@ import static matrix.Matrix.*
  */
 class MatrixTests extends Specification {
 	def 'print transposition'() {
-		def matrix = [[1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3]] as int[][]
+		def matrix = [[1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3]] as double[][]
 		printTransposition(matrix)
 		printMatrix(matrix)
 
@@ -32,5 +32,26 @@ class MatrixTests extends Specification {
 
 		expect:
 		true
+	}
+
+	def 'multiply invalid matrix'() {
+		when:
+		def m1 = [[1, 2, 3], [4, 5, 6]] as double[][]
+		def m2 = [[7, 8], [9, 10]] as double[][]
+		Matrix.multiply(m1, m2)
+
+		then:
+		def e = thrown(IllegalArgumentException)
+		e.message == 'Rows of the first matrix and columns of the second matrix are not equal'
+	}
+
+	def 'multiply matrix'() {
+		when:
+		def m1 = [[1, 2, 3], [4, 5, 6]] as double[][]
+		def m2 = [[7, 8], [9, 10], [11, 12]] as double[][]
+		def m3 = [[58, 64], [139, 154]] as double[][]
+
+		then:
+		m3 == multiply(m1, m2)
 	}
 }
