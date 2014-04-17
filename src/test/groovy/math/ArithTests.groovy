@@ -30,7 +30,7 @@ class ArithTests extends Specification {
 		isPrime(-5)
 
 		then:
-		def ex = thrown(IllegalStateException)
+		def ex = thrown(IllegalArgumentException)
 		ex.message == 'Negative numbers cannot be prime'
 	}
 }
