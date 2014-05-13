@@ -108,4 +108,27 @@ public class Matrix {
 		}
 		return result;
 	}
+
+	/**
+	 * Matrix vector product
+	 * @param a
+	 * @param v
+	 * @return a * v
+	 */
+	public static double[] matrixVectorProduct(double[][] a, double[] v) {
+		if (a[0].length != v.length) {
+			throw new IllegalArgumentException("Cannot perform multiplication");
+		}
+		int n = a.length;
+		int m = a[0].length;
+		double[] result = new double[n];
+		for (int i = 0; i < n; i++) {
+			double sum = 0;
+			for (int j = 0; j < m; j++) {
+				sum += a[i][j] * v[j];
+			}
+			result[i] = sum;
+		}
+		return result;
+	}
 }

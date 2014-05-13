@@ -11,8 +11,8 @@ import static matrix.Matrix.*
 class MatrixTests extends Specification {
 	def 'print transposition'() {
 		def matrix = [[1.0, 1.1, 1.2, 1.3], [2.0, 2.1, 2.2, 2.3], [3.0, 3.1, 3.2, 3.3]] as double[][]
-		printTransposition(matrix)
 		printMatrix(matrix)
+		printTransposition(matrix)
 
 		expect:
 		true
@@ -39,7 +39,7 @@ class MatrixTests extends Specification {
 		when:
 		def m1 = [[1, 2, 3], [4, 5, 6]] as double[][]
 		def m2 = [[7, 8], [9, 10]] as double[][]
-		Matrix.multiply(m1, m2)
+		multiply(m1, m2)
 
 		then:
 		def e = thrown(IllegalArgumentException)
@@ -58,11 +58,31 @@ class MatrixTests extends Specification {
 
 	def 'transpose'() {
 		when:
-		def m1 = [[1, 2, 3], [4, 5, 6]] as double[][]
-		def m2 = transpose m1
+		def m = [[1, 2, 3], [4, 5, 6]] as double[][]
+		def t = transpose m
 
 		then:
 		true
-		m2 == [[1, 4], [2, 5], [3, 6]]
+		t == [[1, 4], [2, 5], [3, 6]]
+	}
+
+	def 'matrix vector product'() {
+		def m = [[1, -1, 2], [0, -3, 1]] as double[][]
+		def v = [2, 1, 0] as double[]
+
+		expect:
+		def res = matrixVectorProduct(m, v)
+		print res
+	}
+
+	def 'invalid matrix vector product'() {
+		when:
+		def m = [[1, 2, 3], [4, 5, 6]] as double[][]
+		def v = [9, 10] as double[]
+		matrixVectorProduct(m, v)
+
+		then:
+		def e = thrown(IllegalArgumentException)
+		e.message == 'Cannot perform multiplication'
 	}
 }
