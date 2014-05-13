@@ -30,9 +30,11 @@ class StackTests extends Specification{
 
 	def 'clear'() {
 		when:
+		stack.push('test')
 		stack.clear()
 
 		then:
 		stack.isEmpty()
+		stack.size() == 0
 	}
 }

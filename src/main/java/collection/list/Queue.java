@@ -148,8 +148,8 @@ public class Queue<T> implements Iterable<T> {
 	 * @return an iterator for the queue
 	 */
 	@Override
-	public Iterator<T> iterator() {
-		return new QueueInterator();
+	public Iterator<T> iterator(){
+		return new QueueIterator();
 	}
 
 	private T deleteNode(Node current, Node previous) {
@@ -168,7 +168,7 @@ public class Queue<T> implements Iterable<T> {
 		private Node next;
 	}
 
-	private class QueueInterator implements Iterator<T> {
+	private class QueueIterator implements Iterator<T> {
 		private Node iterNode = first;
 
 		@Override

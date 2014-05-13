@@ -65,6 +65,7 @@ public class Stack<T> implements Iterable<T> {
 	@SuppressWarnings("unchecked")
 	public void clear() {
 		array = (T[]) new Object[DEFAULT_SIZE];
+		size = 0;
 	}
 
 	/**

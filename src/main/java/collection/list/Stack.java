@@ -57,6 +57,7 @@ public class Stack<T> implements Iterable<T> {
 	 */
 	public void clear() {
 		node = null;
+		size = 0;
 	}
 
 	/**
@@ -65,7 +66,7 @@ public class Stack<T> implements Iterable<T> {
 	 */
 	@Override
 	public Iterator<T> iterator() {
-		return new StackInterator();
+		return new StackIterator();
 	}
 
 	/**
@@ -92,7 +93,7 @@ public class Stack<T> implements Iterable<T> {
 		private Node next;
 	}
 
-	private class StackInterator implements Iterator<T> {
+	private class StackIterator implements Iterator<T> {
 		private Node iterNode = node;
 
 		@Override
