@@ -10,7 +10,7 @@ import static matrix.Matrix.*
  */
 class MatrixTests extends Specification {
 	def 'print transposition'() {
-		def matrix = [[1, 1, 1, 1], [2, 2, 2, 2], [3, 3, 3, 3]] as double[][]
+		def matrix = [[1.0, 1.1, 1.2, 1.3], [2.0, 2.1, 2.2, 2.3], [3.0, 3.1, 3.2, 3.3]] as double[][]
 		printTransposition(matrix)
 		printMatrix(matrix)
 
@@ -54,5 +54,15 @@ class MatrixTests extends Specification {
 
 		then:
 		m3 == multiply(m1, m2)
+	}
+
+	def 'transpose'() {
+		when:
+		def m1 = [[1, 2, 3], [4, 5, 6]] as double[][]
+		def m2 = transpose m1
+
+		then:
+		true
+		m2 == [[1, 4], [2, 5], [3, 6]]
 	}
 }

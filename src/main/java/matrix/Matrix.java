@@ -4,7 +4,7 @@ import math.Arith;
 
 /**
  * @author Andrei Petraru
- * 10 Apr 2014
+ *         10 Apr 2014
  */
 public class Matrix {
 
@@ -18,7 +18,7 @@ public class Matrix {
 		for (int i = 0; i < a[0].length; i++) {
 			System.out.print("[ ");
 			for (int j = 0; j < a.length; j++) {
-				System.out.print(a[j][j] + " ");
+				System.out.print(a[j][i] + " ");
 			}
 			System.out.print("]");
 			System.out.println();
@@ -65,16 +65,16 @@ public class Matrix {
 	}
 
 	/**
-	 * matrix - matrix multiplication
-	 * @param x
-	 * @param y
-	 * return product of x and y
+	 * matrix multiplication
+	 *
+	 * @param a
+	 * @param b return product of x and y
 	 */
-	public static double[][] multiply(double[][] x, double[][] y) {
-		int xRows = x.length;
-		int xCols = x[0].length;
-		int yRows = y.length;
-		int yCols = y[0].length;
+	public static double[][] multiply(double[][] a, double[][] b) {
+		int xRows = a.length;
+		int xCols = a[0].length;
+		int yRows = b.length;
+		int yCols = b[0].length;
 
 		if (xCols != yRows) {
 			throw new IllegalArgumentException("Rows of the first matrix and columns of the second matrix are not equal");
@@ -84,8 +84,26 @@ public class Matrix {
 		for (int i = 0; i < xRows; i++) {
 			for (int j = 0; j < yCols; j++) {
 				for (int k = 0; k < xCols; k++) {
-					result[i][j] += x[i][k] * y[k][j];
+					result[i][j] += a[i][k] * b[k][j];
 				}
+			}
+		}
+		return result;
+	}
+
+	/**
+	 * Transposes the a matrix
+	 *
+	 * @param a
+	 * @return a transposed
+	 */
+	public static double[][] transpose(double[][] a) {
+		int n = a.length;
+		int m = a[0].length;
+		double[][] result = new double[m][n];
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				result[j][i] = a[i][j];
 			}
 		}
 		return result;
