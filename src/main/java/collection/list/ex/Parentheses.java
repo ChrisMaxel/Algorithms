@@ -1,6 +1,6 @@
-package list.ex;
+package collection.list.ex;
 
-import list.Stack;
+import collection.list.Stack;
 
 
 /**

@@ -1,4 +1,4 @@
-package list.ex
+package collection.list.ex
 
 import spock.lang.Specification;
 

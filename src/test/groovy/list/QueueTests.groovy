@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class QueueTests extends Specification{
 
-	Queue queue = new Queue()
+	collection.list.Queue queue = new collection.list.Queue()
 
 	def 'enqueue'() {
 		expect:

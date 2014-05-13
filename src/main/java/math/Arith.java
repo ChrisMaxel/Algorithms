@@ -5,6 +5,12 @@ package math;
  * 10 Apr 2014
  */
 public class Arith {
+	/**
+	 * Greatest common divisor of two numbers
+	 * @param p
+	 * @param q
+	 * @return
+	 */
 	public static int gcd(int p, int q) {
 		if (p < 0 || q < 0) {
 			throw new IllegalArgumentException("Cannot compute gcd for negative numbers");
@@ -17,6 +23,11 @@ public class Arith {
 		return gcd(q, r);
 	}
 
+	/**
+	 * Checks if a number is prime
+	 * @param n
+	 * @return
+	 */
 	public static boolean isPrime(int n) {
 		if (n < 0) {
 			throw new IllegalArgumentException("Negative numbers cannot be prime");

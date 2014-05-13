@@ -4,7 +4,7 @@ import spock.lang.Specification
 
 class StackTests extends Specification{
 
-	Stack stack = new Stack()
+	collection.stack.Stack stack = new collection.stack.Stack()
 
 	def 'push'() {
 		expect:
