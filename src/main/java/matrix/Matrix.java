@@ -17,8 +17,8 @@ public class Matrix {
 	public static void printTransposition(double[][] a) {
 		for (int i = 0; i < a[0].length; i++) {
 			System.out.print("[ ");
-			for (int j = 0; j < a.length; j++) {
-				System.out.print(a[j][i] + " ");
+			for (double[] a1 : a) {
+				System.out.print(a1[i] + " ");
 			}
 			System.out.print("]");
 			System.out.println();
@@ -31,10 +31,10 @@ public class Matrix {
 	 * @param a
 	 */
 	public static void printMatrix(double[][] a) {
-		for (int i = 0; i < a.length; i++) {
+		for (double[] a1 : a) {
 			System.out.print("[ ");
 			for (int j = 0; j < a[0].length; j++) {
-				System.out.print(a[i][j] + " ");
+				System.out.print(a1[j] + " ");
 			}
 			System.out.print("]");
 			System.out.println();
@@ -68,7 +68,8 @@ public class Matrix {
 	 * matrix multiplication
 	 *
 	 * @param a
-	 * @param b return product of x and y
+	 * @param b
+	 * @return product of x and y
 	 */
 	public static double[][] multiply(double[][] a, double[][] b) {
 		int xRows = a.length;
