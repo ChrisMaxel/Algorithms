@@ -28,33 +28,19 @@ public class Parentheses {
 			return false;
 		}
 
-		for (int i = 0; i < text.length(); i++) {
-			char letter = text.charAt(i);
+		for (char letter : text.toCharArray()) {
 			switch (letter) {
 				case L_PAREN:
-					stack.push(letter);
-					break;
 				case L_BRACE:
-					stack.push(letter);
-					break;
 				case L_BRACKET:
 					stack.push(letter);
 					break;
 				case R_PAREN:
-					if (checkStack(L_PAREN)) {
-						return false;
-					}
-					break;
+					return !checkStack(L_PAREN);
 				case R_BRACE:
-					if (checkStack(L_BRACE)) {
-						return false;
-					}
-					break;
+					return !checkStack(L_BRACE);
 				case R_BRACKET:
-					if (checkStack(L_BRACKET)) {
-						return false;
-					}
-					break;
+					return !checkStack(L_BRACKET);
 				default:
 					throw new IllegalArgumentException("Non brace character found");
 			}
