@@ -2,7 +2,7 @@ package math
 
 import spock.lang.Specification
 
-import static math.Arith.*
+import static MathUtils.*
 
 /**
  * @author Andrei Petraru 

@@ -1,6 +1,6 @@
 package matrix;
 
-import math.Arith;
+import math.MathUtils;
 
 /**
  * @author Andrei Petraru
@@ -56,7 +56,7 @@ public class Matrix {
 		boolean[][] result = new boolean[n][n];
 		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < n; j++) {
-				if (Arith.gcd(i, j) == 1) {
+				if (MathUtils.gcd(i, j) == 1) {
 					result[i][j] = true;
 				}
 			}

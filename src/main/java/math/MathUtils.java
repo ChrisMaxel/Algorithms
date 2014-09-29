@@ -4,7 +4,7 @@ package math;
  * @author Andrei Petraru 
  * 10 Apr 2014
  */
-public class Arith {
+public class MathUtils {
 	/**
 	 * Greatest common divisor of two numbers
 	 * @param p
