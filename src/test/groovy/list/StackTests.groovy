@@ -1,7 +1,7 @@
 package list
 
 import spock.lang.Specification;
-import collection.list.Stack;
+import collection.linkedlist.Stack;
 
 class StackTests extends Specification {
 
