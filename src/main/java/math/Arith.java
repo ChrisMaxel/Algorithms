@@ -19,7 +19,6 @@ public class Arith {
 			return p;
 		}
 		int r = p % q;
-		System.out.printf("p: %d q: %d r: %d\n", p, q, r);
 		return gcd(q, r);
 	}
 
