@@ -183,8 +183,5 @@ public class Queue<T> implements Iterable<T> {
 			return item;
 		}
 
-		@Override
-		public void remove() {
-		}
 	}
 }

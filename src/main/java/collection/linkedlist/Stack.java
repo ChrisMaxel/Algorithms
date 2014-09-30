@@ -3,7 +3,7 @@ package collection.linkedlist;
 import java.util.Iterator;
 
 /**
- * A generic stack implementation
+ * A generic stack implementation that does not allow nulls
  * @author Andrei Petraru
  * 11 Aug 2013
  */
@@ -16,7 +16,7 @@ public class Stack<T> implements Iterable<T> {
 	 * Inserts a new item
 	 * @param item - item to be inserted
 	 * @return item pushed onto stack
-	 * @throws IllegalArgumentException on null parameter 
+	 * @throws IllegalArgumentException on null parameter
 	 */
 	public T push(T item) {
 		if (item == null) {
@@ -53,7 +53,7 @@ public class Stack<T> implements Iterable<T> {
 	}
 
 	/**
-	 * Removes all elements from the stack	
+	 * Removes all elements from the stack
 	 */
 	public void clear() {
 		node = null;
@@ -76,9 +76,9 @@ public class Stack<T> implements Iterable<T> {
 	public int size() {
 		return size;
 	}
-	
+
 	/**
-	 * Retrieve the value on the top of the stack without removing it 
+	 * Retrieve the value on the top of the stack without removing it
 	 * @return top of the stack
 	 */
 	public T peek() {
@@ -108,9 +108,6 @@ public class Stack<T> implements Iterable<T> {
 			return item;
 		}
 
-		@Override
-		public void remove() {
-		}
 	}
 
 }
