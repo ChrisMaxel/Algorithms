@@ -11,7 +11,7 @@ public class Sort {
 			int l = last;
 			last = 0;
 			for (int i = 0; i < l; i++) {
-				if (array[i] > array[i+1]) {
+				if (array[i] > array[i + 1]) {
 					swap(array, i, i + 1);
 					last = i;
 				}
@@ -29,6 +29,16 @@ public class Sort {
 			}
 			if (i != j - 1) {
 				array[i + 1] = temp;
+			}
+		}
+	}
+
+	public static void insertSort2(int[] array) {
+		for (int i = 1; i < array.length; i++) {
+			int j = i;
+			while (j > 0 && array[j - 1] > array[j]) {
+				swap(array, j, j - 1);
+				j--;
 			}
 		}
 	}
