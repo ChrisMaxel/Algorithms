@@ -19,6 +19,20 @@ public class Sort {
 		}
 	}
 
+	public static void insertSort(int[] array) {
+		for (int j = 1; j < array.length; j++) {
+			int i = j - 1;
+			int temp = array[j];
+			while ((i >= 0) && (temp < array[i])) {
+				array[i + 1] = array[i];
+				i--;
+			}
+			if (i != j - 1) {
+				array[i + 1] = temp;
+			}
+		}
+	}
+
 	private static void swap(int[] a, int i, int j) {
 		int temp = a[i];
 		a[i] = a[j];

@@ -19,4 +19,12 @@ class SortTests extends Specification {
 		a == [0, 1, 2, 3, 3, 5, 7] as int[]
 	}
 
+	def 'insert sort'() {
+		when:
+		def a = [1, 3, 5, 2, 7, 0, 3] as int[]
+		insertSort a
+
+		then:
+		a == [0, 1, 2, 3, 3, 5, 7] as int[]
+	}
 }
