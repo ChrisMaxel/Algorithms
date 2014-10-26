@@ -56,6 +56,35 @@ public class Sort {
 			siftDown(array, 0, end);
 		}
 	}
+	
+	public static void quickSort(int[] array) {
+		qsort(array, 0, array.length - 1);
+	}
+	
+	public static void qsort(int[] array, int low, int high) {
+		int i = low;
+		int j = high;
+		int pivot = array[low + (high - low) / 2];
+		while (i <= j) {
+			while (array[i] < pivot) {
+				i++;
+			}
+			while (array[j] > pivot) {
+				j--;
+			}
+			if (i <= j) {
+				swap(array, i, j);
+				i++;
+				j--;
+			}
+		}
+		if (low < j) {
+			qsort(array, low, j);
+		}
+		if (i < high) {
+			qsort(array, i, high);
+		}
+	}
 
 	private static void siftDown(int[] array, int start, int end) {
 		int root = start;

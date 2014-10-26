@@ -45,4 +45,13 @@ class SortTests extends Specification {
 		then:
 		a == [0, 1, 2, 3, 3, 5, 7] as int[]
 	}
+	
+	def 'quick sort'() {
+		when:
+		def a = [1, 3, 5, 2, 7, 0, 3] as int[]
+		quickSort a
+
+		then:
+		a == [0, 1, 2, 3, 3, 5, 7] as int[]
+	}
 }
