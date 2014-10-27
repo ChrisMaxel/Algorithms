@@ -18,6 +18,19 @@ public class Sort {
 			}
 		}
 	}
+	
+	public static void selectionSort(int[] array) {
+		int n = array.length;
+		for (int i = 0; i < n; i++) {
+			int min = i;
+			for (int j = i + 1; j < n; j++) {
+				if (array[j] < array[min]) {
+					min = j;
+				}
+			}
+			swap(array, i, min);
+		}
+	}
 
 	public static void insertSort(int[] array) {
 		for (int j = 1; j < array.length; j++) {
